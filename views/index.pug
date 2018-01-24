@@ -1,0 +1,15 @@
+html
+    head
+        title= title
+    body
+        h1= message
+
+        form(method='POST' action='/')
+            each value, index in config
+                div.form-group
+                    label(for=index)= index
+                    if index.search(/secret/i) === -1
+                        input.form-control(id=index value=value name=index)
+                    else
+                        input.form-control(id=index value=value name=index type='password')
+            input(type="submit")
